@@ -43,3 +43,18 @@ function displayBooks() {
 
 const displayButton = document.querySelector("button#display-books-button");
 displayButton.addEventListener('click', displayBooks)
+
+const newBookDialog = document.querySelector("dialog#new-book-dialog")
+
+const form = document.querySelector("form");
+form.addEventListener("submit", function addBook(event) {
+    const formData = new FormData(event.target);
+    const book = Object.fromEntries(formData)
+
+    const title = book['title'];
+    const author = book['author'];
+
+    myLibrary.push(new Book(title, author));
+
+    // event.preventDefault();
+})

@@ -10,19 +10,18 @@
     <button id="new-book-button" popovertarget="new-book-dialog">New Book</button>
     <dialog id="new-book-dialog" popover>
         <form method="dialog">
-            
             <div class="form-row">
-                <label for="title">Title</label>
+                <label for="title">Title: </label>
                 <input type="text" id="title" name="title" required>
             </div>
 
             <div class="form-row">
-                <label for="author">Author</label>
+                <label for="author">Author: </label>
                 <input type="text" id="author" name="author" required>
             </div>
 
-            <button type="submit" id="add-button">Add</button>
-            <button type="button" id="cancel-button">Cancel</button>
+            <button type="submit" id="add-button" popovertarget="new-book-dialog" popovertargetaction="hide">Add</button>
+            <button type="button" id="cancel-button" popovertarget="new-book-dialog" popovertargetaction="hide">Cancel</button>
         </form>
     </dialog>
     <button id="display-books-button">Display Books</button>
