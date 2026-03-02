@@ -4,7 +4,7 @@ function Book(title, author) {
     this.id = crypto.randomUUID()
 }
 
-const myLibrary = []
+let myLibrary = []
 
 myLibrary.push(new Book("The Hobbit", "J.R.R Tolkien"));
 // myLibrary.push(new Book("Killing Commendatore", "Murakami"));
@@ -31,10 +31,25 @@ function displayBooks() {
         const bookId = document.createElement("p");
         bookId.textContent = book.id;
 
-        // add p elements to card
+        // Add a button on each book’s display to remove the book from the library.
+        // create delete button
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", function(e) {
+            // remove book from library array
+            myLibrary = myLibrary.filter(function (libraryBook) {
+                return libraryBook.id !== book.id;
+            })
+
+            // remove book from display
+            this.parentElement.remove();
+        })
+
+        // add elements to card
         bookCard.appendChild(title);
         bookCard.appendChild(author);
         bookCard.appendChild(bookId);
+        bookCard.appendChild(deleteButton);
 
         // append card to container
         booksContainer.appendChild(bookCard);
@@ -53,8 +68,10 @@ form.addEventListener("submit", function addBook(event) {
 
     const title = book['title'];
     const author = book['author'];
+    newBook = new Book(title, author);
+    const id = newBook.id;
 
-    myLibrary.push(new Book(title, author));
+    myLibrary.push(newBook);
 
     // event.preventDefault();
 })
