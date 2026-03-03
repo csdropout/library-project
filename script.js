@@ -78,15 +78,16 @@ const newBookDialog = document.querySelector("dialog#new-book-dialog")
 
 const form = document.querySelector("form");
 form.addEventListener("submit", function addBook(event) {
+    event.preventDefault();
+
     const formData = new FormData(event.target);
     const book = Object.fromEntries(formData)
 
     const title = book['title'];
     const author = book['author'];
     newBook = new Book(title, author);
-    const id = newBook.id;
 
     myLibrary.push(newBook);
 
-    // event.preventDefault();
+    newBookDialog.hidePopover();
 })
