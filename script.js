@@ -49,6 +49,7 @@ form.addEventListener("submit", function addBook(event) {
     myLibrary.push(newBook);
 
     newBookDialog.hidePopover();
+    clearForm();
 
     const booksContainer = document.querySelector("div#books-container");
     const bookCard = createBookCard(newBook);
@@ -115,3 +116,13 @@ function createBookCard(book) {
 }
 
 displayBooks()
+
+function clearForm() {
+    const formInputs = document.querySelectorAll("input[type='text']");
+    for (const input of formInputs) {
+        input.value = "";
+    }
+}
+
+const cancelButton = document.querySelector("#cancel-button");
+cancelButton.addEventListener('click', clearForm);
