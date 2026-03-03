@@ -1,7 +1,8 @@
-function Book(title, author) {
+function Book(title, author, hasRead = false) {
     this.title = title;
     this.author = author;
-    this.id = crypto.randomUUID()
+    this.id = crypto.randomUUID();
+    this.hasRead = hasRead;
 }
 
 let myLibrary = []
@@ -31,6 +32,10 @@ function displayBooks() {
         const bookId = document.createElement("p");
         bookId.textContent = book.id;
 
+        // create element for read status
+        const readStatus = document.createElement("p");
+        readStatus.textContent = book.hasRead? "Read" : "Not read";
+
         // Add a button on each book’s display to remove the book from the library.
         // create delete button
         const deleteButton = document.createElement("button");
@@ -45,11 +50,21 @@ function displayBooks() {
             this.parentElement.remove();
         })
 
+        // Add a button on each book’s display to change its read status.
+        const readButton = document.createElement("button");
+        readButton.textContent = "Change read status";
+        readButton.addEventListener("click", () => {
+            book.hasRead = !book.hasRead;
+            readStatus.textContent = book.hasRead? "Read" : "Not read";
+        })
+
         // add elements to card
         bookCard.appendChild(title);
         bookCard.appendChild(author);
         bookCard.appendChild(bookId);
+        bookCard.appendChild(readStatus);
         bookCard.appendChild(deleteButton);
+        bookCard.appendChild(readButton);
 
         // append card to container
         booksContainer.appendChild(bookCard);
