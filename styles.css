@@ -45,7 +45,8 @@ dialog::backdrop {
 }
 
 .card-buttons button,
-.main-buttons button {
+.main-buttons button,
+.form-buttons button{
     padding: 0.25em 1em;
     border-radius: 10px;
     border: 1px solid black;
@@ -67,4 +68,9 @@ input[type='text'] {
     border-radius: 8px;
     height: 2em;
     padding-left: 5px;;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1em;
 }
