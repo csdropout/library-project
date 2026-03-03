@@ -41,7 +41,7 @@ dialog::backdrop {
 }
 
 .card {
-    height: minmax(250px, 350px);
+    height: 200px;
     background-color: #eee2bc;
     border-left: 5px solid #4e472a;
     padding: 1em;
