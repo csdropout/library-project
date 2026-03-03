@@ -29,19 +29,19 @@ function displayBooks() {
 
         // create p element for title
         const title = document.createElement("p");
-        title.textContent = book.title;
+        title.textContent = `Title: ${book.title}`;
 
         // create p element for author
         const author = document.createElement("p");
-        author.textContent = book.author;
+        author.textContent = `Author: ${book.author}`;
 
         // create p element for book id
         const bookId = document.createElement("p");
-        bookId.textContent = book.id;
+        bookId.textContent = `ID: ${book.id}`;
 
         // create element for read status
         const readStatus = document.createElement("p");
-        readStatus.textContent = book.hasRead? "Read" : "Not read";
+        readStatus.textContent = `Status: ${book.hasRead? "Read" : "Not read"}`;
 
         // Add a button on each book’s display to remove the book from the library.
         // create delete button
@@ -62,7 +62,7 @@ function displayBooks() {
         readButton.textContent = "Change read status";
         readButton.addEventListener("click", () => {
             book.toggleReadStatus();
-            readStatus.textContent = book.hasRead? "Read" : "Not read";
+            readStatus.textContent = `Status: ${book.hasRead? "Read" : "Not read"}`;
         })
 
         // group buttons
