@@ -50,6 +50,7 @@ dialog::backdrop {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+    justify-content: center;
 }
 
 .card-buttons {
