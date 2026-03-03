@@ -20,6 +20,7 @@ myLibrary.push(new Book("Killing Commendatore", "Murakami"));
 function displayBooks() {
     // create/find container or table
     const booksContainer = document.querySelector("div#books-container");
+    booksContainer.textContent = "";
 
     // loop through library
     for (const book of myLibrary) {
@@ -108,3 +109,5 @@ function createBookCard(book) {
 
     return bookCard;
 }
+
+displayBooks()
