@@ -9,7 +9,7 @@ dialog {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 1em;
+  padding: 2em;
 }
 
 dialog::backdrop {
@@ -61,7 +61,7 @@ dialog::backdrop {
 .form-row {
     display: flex;
     flex-direction: column;
-    margin: 0.5em;
+    margin-bottom: 1em;
 }
 
 input[type='text'] {
