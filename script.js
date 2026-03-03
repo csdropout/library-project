@@ -5,6 +5,10 @@ function Book(title, author, hasRead = false) {
     this.hasRead = hasRead;
 }
 
+Book.prototype.toggleReadStatus = function() {
+    this.hasRead = !this.hasRead;
+}
+
 let myLibrary = []
 
 myLibrary.push(new Book("The Hobbit", "J.R.R Tolkien"));
@@ -57,7 +61,7 @@ function displayBooks() {
         const readButton = document.createElement("button");
         readButton.textContent = "Change read status";
         readButton.addEventListener("click", () => {
-            book.hasRead = !book.hasRead;
+            book.toggleReadStatus();
             readStatus.textContent = book.hasRead? "Read" : "Not read";
         })
 
