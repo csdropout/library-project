@@ -49,6 +49,10 @@ form.addEventListener("submit", function addBook(event) {
     myLibrary.push(newBook);
 
     newBookDialog.hidePopover();
+
+    const booksContainer = document.querySelector("div#books-container");
+    const bookCard = createBookCard(newBook);
+    booksContainer.appendChild(bookCard);
 })
 
 function createBookCard(book) {
