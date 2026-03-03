@@ -8,7 +8,10 @@ function Book(title, author, hasRead = false) {
 let myLibrary = []
 
 myLibrary.push(new Book("The Hobbit", "J.R.R Tolkien"));
-// myLibrary.push(new Book("Killing Commendatore", "Murakami"));
+myLibrary.push(new Book("The Hobbit", "J.R.R Tolkien"));
+myLibrary.push(new Book("The Hobbit", "J.R.R Tolkien"));
+myLibrary.push(new Book("The Hobbit", "J.R.R Tolkien"));
+myLibrary.push(new Book("Killing Commendatore", "Murakami"));
 
 function displayBooks() {
     // create/find container or table
@@ -58,13 +61,18 @@ function displayBooks() {
             readStatus.textContent = book.hasRead? "Read" : "Not read";
         })
 
+        // group buttons
+        const cardButtons = document.createElement("div");
+        cardButtons.setAttribute("class", "card-buttons");
+        cardButtons.appendChild(readButton);
+        cardButtons.appendChild(deleteButton);
+
         // add elements to card
         bookCard.appendChild(title);
         bookCard.appendChild(author);
         bookCard.appendChild(bookId);
         bookCard.appendChild(readStatus);
-        bookCard.appendChild(deleteButton);
-        bookCard.appendChild(readButton);
+        bookCard.appendChild(cardButtons);
 
         // append card to container
         booksContainer.appendChild(bookCard);
