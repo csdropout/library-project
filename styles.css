@@ -44,6 +44,15 @@ dialog::backdrop {
     gap: 0.5em;
 }
 
-.card-buttons button {
-    padding: 0.25em 0.5em;
+.card-buttons button,
+.main-buttons button {
+    padding: 0.25em 1em;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.main-buttons {
+    display: flex;
+    padding: 1em;
+    gap: 1em;
 }
