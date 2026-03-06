@@ -1,12 +1,14 @@
-function Book(title, author, hasRead = false) {
-    this.title = title;
-    this.author = author;
-    this.id = crypto.randomUUID();
-    this.hasRead = hasRead;
-}
+class Book {
+    constructor(title, author, hasRead=false) {
+        this.title = title;
+        this.author = author;
+        this.hasRead = hasRead;
+        this.id = crypto.randomUUID();
+    }
 
-Book.prototype.toggleReadStatus = function() {
-    this.hasRead = !this.hasRead;
+    toggleReadStatus() {
+        this.hasRead = !this.hasRead;
+    }
 }
 
 let myLibrary = []
