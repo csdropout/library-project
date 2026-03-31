@@ -8,15 +8,17 @@
 </head>
 <body>
     <dialog id="new-book-dialog" popover>
-        <form method="dialog">
+        <form method="dialog" novalidate>
             <div class="form-row">
                 <div><label for="title">Title: </label></div>
                 <input type="text" id="title" name="title" required>
+                <span class="error" aria-live="polite"></span>
             </div>
 
             <div class="form-row">
                 <div><label for="author">Author: </label></div>
                 <input type="text" id="author" name="author" required>
+                <span class="error" aria-live="polite"></span>
             </div>
 
             <div class="form-buttons">

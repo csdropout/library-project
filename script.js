@@ -99,10 +99,14 @@ displayButton.addEventListener('click', displayBooks)
 const newBookDialog = document.querySelector("dialog#new-book-dialog")
 
 const form = document.querySelector("form");
-form.addEventListener("submit", function addBook(event) {
-    event.preventDefault();
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!titleInput.validity.valid || !authorInput.validity.valid) {
+        showError();
+        return;
+    }
 
-    const formData = new FormData(event.target);
+    const formData = new FormData(e.target);
     const book = Object.fromEntries(formData)
 
     const title = book['title'];
@@ -129,3 +133,45 @@ function clearForm() {
 
 const cancelButton = document.querySelector("#cancel-button");
 cancelButton.addEventListener('click', clearForm);
+
+// custom validation messages
+const titleInput = document.querySelector("#title");
+const titleError = document.querySelector("#title + span.error");
+const authorInput = document.querySelector("#author");
+const authorError = document.querySelector("#author + span.error");
+
+titleInput.addEventListener("input", () => {
+    if (!titleInput.validity.valueMissing) {
+        titleError.textContent = "";
+        titleError.classList.remove("active");
+    } else {
+        titleError.textContent = "Yo, what is the title?";
+        titleError.classList.add("active");
+    }
+});
+
+authorInput.addEventListener("input", () => {
+    if (!authorInput.validity.valueMissing) {
+        authorError.textContent = "";
+        authorError.classList.remove("active");
+    } else {
+        authorError.textContent = "Who wrote this book?";
+        authorError.classList.add("active");
+    }
+});
+
+function showError() {
+    if (authorInput.validity.valueMissing) {
+        authorError.textContent = "Who wrote this book?";
+        authorError.classList.add("active");
+    } else {
+        authorError.textContent = "";
+    }
+
+    if (titleInput.validity.valueMissing) {
+        titleError.textContent = "Yo, what is the title?";
+        titleError.classList.add("active");
+    } else {
+        titleError.textContent = "";
+    }
+}
