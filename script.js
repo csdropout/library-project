@@ -111,14 +111,14 @@ form.addEventListener("submit", (e) => {
 
     const title = book['title'];
     const author = book['author'];
-    newBook = new Book(title, author);
+    const newBook = new Book(title, author);
     myLibrary.push(newBook);
 
     newBookDialog.hidePopover();
     clearForm();
 
     const booksContainer = document.querySelector("div#books-container");
-    const bookCard = createBookCard(newBook);
+    const bookCard = newBook.createBookCard(newBook);
     booksContainer.appendChild(bookCard);
 })
 
